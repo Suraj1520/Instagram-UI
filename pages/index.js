@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import style from '../styles/Index.module.css'
+import Loader from '../Components/Loader/Loader'
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
@@ -57,14 +58,14 @@ export default function Home() {
       dataLength={photos.length}
       next={fetchRandomPhotos}
       hasMore={true}
-      loader={<h4>Loading...</h4>}
+      loader={<Loader/>}
     >
       <div className={style.newsFeed}>
         {photos.map((randomPhoto) => (
 
           <div key={randomPhoto.id} className={style.card}>
             <div className={style.userCard}>
-              <div className={style.userInfo} onClick={() => handleNavigateToUser(randomPhoto.user.instagram_username)}>
+              <div className={style.userInfo} onClick={() => handleNavigateToUser(randomPhoto.user.username)}>
                 <img src={randomPhoto.user.profile_image.small} className={style.userProfilePic} />
                 <h2>{randomPhoto.user.first_name}&nbsp;
                   {randomPhoto.user.last_name ? randomPhoto.user.last_name : " "}
@@ -80,10 +81,6 @@ export default function Home() {
           </div>
         )
         )}
-
-
-
-
       </div>
     </InfiniteScroll>
   )

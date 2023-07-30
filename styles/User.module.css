@@ -1,3 +1,201 @@
-.userDetail{
-    margin-top: 3rem;
+.userDetail {
+    margin-top: 5rem;
+}
+
+.userDetails {
+    display: flex;
+    margin-left: 20%;
+}
+
+.userImage {
+    margin-left: 3rem;
+}
+
+.userImage img {
+    border-radius: 50%;
+}
+
+.userInfo {
+    margin-left: 3rem;
+}
+
+.userName {
+    height: 50px;
+}
+
+.userInfo p {
+    color: #a8a8a8;
+}
+
+.postCount {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.postSubCount {
+    color: #ccc;
+    margin-right: 1rem;
+}
+
+.photoGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    padding: 10px 2rem;
+}
+
+.photoGrid .photo {
+    overflow: hidden;
+}
+
+.photoGrid img {
+    /* width: 33%; */
+    /* border-radius: 15px; */
+    align-items: center;
+    height: 350px;
+    object-fit: cover;
+}
+
+.photoGrid .imgDiv {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    /* width: 33%; */
+    height: 400px;
+    object-fit: cover;
+
+}
+
+.photoGrid .imgDescription {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 4px;
+    padding: 4px;
+
+}
+
+.photo_list {
+    padding: 10px 2rem;
+}
+
+.photo_list .photo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #828282;
+    border: 1px solid #909090;
+    border-radius: 8px;
+    margin: 10px 0px;
+}
+
+.photo_list img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.listView {
+    display: flex;
+    flex-direction: row;
+}
+
+.switch {
+    padding-bottom: 15px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: end;
+}
+
+.button {
+    appearance: none;
+    background-color: #000000;
+    border: 1px solid rgba(228, 228, 228, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(179, 179, 179, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15px;
+    list-style: none;
+    padding: 10px 20px;
+    position: relative;
+    transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+
+    .userDetail {
+        margin: 50px 0px;
+    }
+
+    .userDetails {
+        margin: 0px;
+        padding: 15px;
+    }
+
+    .userImage {
+        margin-left: 0px;
+    }
+
+    .overlay {
+        position: relative;
+        background-color: rgba(0, 0, 0, 0);
+        -webkit-transition: opacity 1s ease-in-out;
+        transition: opacity 1s ease-in-out;
+    }
+
+
+    .userInfo {
+        margin: 0px;
+        padding: 5px;
+    }
+
+    .photoGrid {
+        padding: 0px 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        grid-gap: 10px;
+    }
+
+    .photoGrid .imgDiv {
+        max-height: 6rem;
+    }
+
+    .userInfo {
+        margin-left: 1rem;
+    }
+
+    .userName {
+        height: 35px;
+        color: #ccc;
+    }
+
+    .userInfo p {
+        font-size: 12px;
+        color: #a8a8a8;
+    }
+
+    .postSubCount {
+        color: #ccc;
+    }
+
+    .imgDescription {
+        font-size: small;
+    }
+
+
+
 }
