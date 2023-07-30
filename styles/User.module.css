@@ -1,5 +1,5 @@
 .userDetail {
-    margin-top: 5rem;
+    padding-top: 5rem;
 }
 
 .userDetails {
@@ -184,6 +184,7 @@
     }
 
     .userInfo p {
+
         font-size: 12px;
         color: #a8a8a8;
     }

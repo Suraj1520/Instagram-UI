@@ -23,6 +23,8 @@
     padding-right: 1rem;
 }
 
-.icon{
-    margin-right:0.5rem;
+.icon {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
 }
