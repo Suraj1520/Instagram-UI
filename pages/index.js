@@ -23,7 +23,7 @@ export default function Home() {
   const { theme, themes } = useContext(ThemeContext);
 
   const handleNavigateToUser = (userId) => {
-    router.push(`http://localhost:3000/user/${userId}`);
+    router.push(`${process.env.NEXT_PUBLIC_BASE_URL}/user/${userId}`);
   }
 
   const fetchRandomPhotos = async () => {
