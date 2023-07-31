@@ -11,13 +11,13 @@ import { ThemeContext } from '@/pages/themeContext'
 
 
 const themes2 = {
-    light:{
-        primaryColor:'#000',
-        secondaryColor:'#F5F5F5',
+    light: {
+        primaryColor: '#000',
+        secondaryColor: '#F5F5F5',
     },
-    dark:{
-        primaryColor:'#fff',
-        secondaryColor:'#000',
+    dark: {
+        primaryColor: '#fff',
+        secondaryColor: '#000',
     }
 };
 
@@ -71,54 +71,58 @@ const UserDetail = () => {
     };
 
     if (!user) {
-        <div className={style.userDetail}>
+        <div className={style.userDetail} style={{
+            backgroundColor: themes[theme].secondaryColor,
+            color: themes[theme].primaryColor,
+        }} >
             <Loader />
         </div>
     }
     return (
         < >
             <Navbar />
-            <div className={style.userDetail} style={{
+            <div className={style.userPage} style={{
                 backgroundColor: themes[theme].secondaryColor,
                 color: themes[theme].primaryColor,
             }}>
-                <div style={{
+                <div className={style.userDetail} style={{
                     backgroundColor: themes[theme].secondaryColor,
                     color: themes[theme].primaryColor,
                 }}>
-                    {user &&
-                        <div className={style.userDetails}>
-                            <div className={style.userImage}>
-                                {user.profile_image && < img src={user.profile_image.large} alt={user.name}></img>}
-                            </div>
-                            <div className={style.userInfo}>
-                                <div>
-                                    <h2 className={style.userName}>{user.name}</h2>
-                                    {user.location && <p>Location - {user.location || 'N/A'}</p>}
-                                    {user.instagram_username && <p>Instagram - {user.instagram_username || 'N/A'}</p>}
+                    <div >
+                        {user &&
+                            <div className={style.userDetails}>
+                                <div className={style.userImage}>
+                                    {user.profile_image && < img src={user.profile_image.large} alt={user.name}></img>}
                                 </div>
-                                <div className={style.postCount}>
-                                    {user.total_photos && <div className={style.postSubCount}>{user.total_photos} Photos</div>}
-                                    {user.total_likes && <div className={style.postSubCount}>{user.total_likes} Likes</div>}
-                                    {(user.total_collections && user.total_collections >= 0) && <div className={style.postSubCount}>{user.total_collections} Collections</div>}
+                                <div className={style.userInfo}>
+                                    <div>
+                                        <h2 className={style.userName}>{user.name}</h2>
+                                        {user.location && <p>Location - {user.location || 'N/A'}</p>}
+                                        {user.instagram_username && <p>Instagram - {user.instagram_username || 'N/A'}</p>}
+                                    </div>
+                                    <div className={style.postCount}>
+                                        {user.total_photos && <div className={style.postSubCount}>{user.total_photos} Photos</div>}
+                                        {user.total_likes && <div className={style.postSubCount}>{user.total_likes} Likes</div>}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    }
+                        }
 
-                </div>
-                <div className={style.photoComponent}>
-                    <div className={style.switch}>
-                        {user.profile_image && <button className={style.button} style={{
-                            backgroundColor: themes2[theme].secondaryColor,
-                            color: themes2[theme].primaryColor,
-                        }} role="button" onClick={handleViewMode}>Switch View </button>}
                     </div>
-                    {userPhotos.length === 0 ? (
-                        <Loader />
-                    ) : viewMode === 'grid' ? <PhotoGrid userid={userId} /> : <PhotoList userid={userId} />}
-                </div>
-            </div >
+                    <div className={style.photoComponent}>
+                        <div className={style.switch}>
+                            {user.profile_image && <button className={style.button} style={{
+                                backgroundColor: themes2[theme].secondaryColor,
+                                color: themes2[theme].primaryColor,
+                            }} role="button" onClick={handleViewMode}>Switch View </button>}
+                        </div>
+                        {userPhotos.length === 0 ? (
+                            <Loader />
+                        ) : viewMode === 'grid' ? <PhotoGrid userid={userId} /> : <PhotoList userid={userId} />}
+                    </div>
+                </div >
+            </div>
         </>
     )
 }

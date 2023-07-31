@@ -12,6 +12,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import { AiOutlineLike } from 'react-icons/ai'
 import { BiComment } from 'react-icons/bi'
 import { MdOutlineAddReaction } from 'react-icons/md'
+import {PiDownloadSimpleLight} from 'react-icons/pi'
 
 
 export default function Home() {
@@ -58,8 +59,8 @@ export default function Home() {
         localStorage.setItem('cachedExpireTime', expirationTime);
         localStorage.setItem('cachedData', JSON.stringify(response));
       }
-      // console.log('response');
-      // console.log(response);
+      console.log('response');
+      console.log(response);
 
       setPage((prevPage) => prevPage + 1);
 
@@ -77,14 +78,15 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <div className={style.InfiniteScroll} style={{
+                backgroundColor: themes[theme].secondaryColor,
+                color: themes[theme].primaryColor,
+            }}>
       <InfiniteScroll
         dataLength={photos.length}
         next={fetchRandomPhotos}
         hasMore={true}
-        loader={<Loader style={{
-          backgroundColor: themes[theme].secondaryColor,
-          color: themes[theme].primaryColor,
-        }} />}
+        loader={<Loader  />}
       >
         <div className={style.newsFeed} style={{
           backgroundColor: themes[theme].secondaryColor,
@@ -92,10 +94,7 @@ export default function Home() {
         }}>
           {photos.map((randomPhoto,index) => (
 
-            <div key={`${randomPhoto.id}-${index}`} className={style.card} style={{
-              backgroundColor: themes[theme].secondaryColor,
-              color: themes[theme].primaryColor,
-            }}>
+            <div key={`${randomPhoto.id}-${index}`} className={style.card}>
               <div className={style.userCard}>
                 <div className={style.userInfo} onClick={() => handleNavigateToUser(randomPhoto.user.username)}>
                   <img src={randomPhoto.user.profile_image.small} className={style.userProfilePic} />
@@ -105,9 +104,9 @@ export default function Home() {
                 </div>
                 <img src={randomPhoto.urls.small} alt={randomPhoto.description} className={style.postImage} />
                 <div className={style.actionButtons}>
-                  <AiOutlineLike className={style.icon} />
-                  <BiComment className={style.icon} />
-                  <MdOutlineAddReaction className={style.icon} />
+                  <div className={style.icon}><AiOutlineLike  />&nbsp;  {randomPhoto.likes}</div>
+                  <div className={style.icon}><MdOutlineAddReaction  /> &nbsp; {randomPhoto.views}</div>
+                  <div className={style.icon}><PiDownloadSimpleLight  />&nbsp;  {randomPhoto.downloads}</div>
                 </div>
               </div>
             </div>
@@ -115,6 +114,7 @@ export default function Home() {
           )}
         </div>
       </InfiniteScroll>
+      </div>
     </>
   )
 }

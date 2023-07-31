@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import { MdOutlineLightMode } from 'react-icons/md';
-import {BiSolidMoon} from 'react-icons/bi';
+import {BiSolidMoon,BiHomeHeart} from 'react-icons/bi';
 import { useState,useContext } from 'react';
 import {ThemeContext} from '@/pages/themeContext'
 
@@ -9,7 +9,7 @@ import {ThemeContext} from '@/pages/themeContext'
 const themes = {
     light:{
         primaryColor:'#000',
-        secondaryColor:'#F5F5F5',
+        secondaryColor:'#e2e8ee',
     },
     dark:{
         primaryColor:'#fff',
@@ -29,7 +29,9 @@ const Navbar = () => {
             <ul className={styles.ul}>
                 <li className={styles.list}>
                     <Link href="/">
-                        Home
+                        <div>
+                        News-Feed <BiHomeHeart />
+                        </div>
                     </Link>
                 </li>
             </ul>

@@ -73,8 +73,9 @@ const PhotoGrid = ({ userid }) => {
                                 <p></p>
                             )
                         }
-                        <div className={style.imgDescription}>{photo.alt_description && capitalize(photo.alt_description)}</div>
-                        
+                        <div className={style.overlay}>
+                        <div className={style.imgDescription} >{photo.alt_description && capitalize(photo.alt_description)}</div>
+                        </div>
                     </div>
                 ))}
             </div>
