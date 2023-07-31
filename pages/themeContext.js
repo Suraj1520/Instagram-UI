@@ -10,7 +10,7 @@ const themes = {
         secondaryColor:'#000',
     }
 }
-const ThemeContext = createContext();
+const ThemeContext = React.createContext();
 
 const ThemeProvider = ({ children }) => {
     const [currTheme, setCurrTheme] = useState('dark');
