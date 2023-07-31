@@ -1,13 +1,13 @@
-import React,{ createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 const themes = {
-    light:{
-        primaryColor:'#000',
-        secondaryColor:'#fff',
+    light: {
+        primaryColor: '#000',
+        secondaryColor: '#fff',
     },
-    dark:{
-        primaryColor:'#fff',
-        secondaryColor:'#000',
+    dark: {
+        primaryColor: '#fff',
+        secondaryColor: '#000',
     }
 }
 const ThemeContext = React.createContext();
@@ -19,10 +19,11 @@ const ThemeProvider = ({ children }) => {
     };
 
     return (
-        <ThemeContext.Provider value={{ theme:currTheme, toggle, themes }}>
+        <ThemeContext.Provider value={{ theme: currTheme, toggle, themes }}>
             {children}
         </ThemeContext.Provider>
     );
 };
 
-export  {ThemeContext,ThemeProvider};
+export default ThemeProvider;
+export { ThemeContext, ThemeProvider };
